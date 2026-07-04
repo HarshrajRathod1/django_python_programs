@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/findjob" method="get">
+      <table border="2" align="center" width="50%">
+        <tr>
+          <td>JOB</td>
+          <td>
+            <select name="job">
+              <option value="manager">Manager</option>
+              <option value="cleark">Cleark</option>
+              <option value="hr">HR</option>
+              <option value="account">Accounts</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><input type="submit" value="find" /></td>
+          <td><input type="reset" value="clear" /></td>
+        </tr>
+      </table>
+    </form>
+    <br />
+    <br />
+    <table border="2" align="center" width="50%">
+      <tr>
+        <td>Employee Number</td>
+        <td>Employee Name</td>
+        <td>JOB</td>
+        <td>Salary</td>
+      </tr>
+      {%for e in qs%}
+      <tr>
+        <td>{{e.empno}}</td>
+        <td>{{e.ename}}</td>
+        <td>{{e.job}}</td>
+        <td>{{e.sal}}</td>
+      </tr>
+      {%endfor%}
+    </table>
+  </body>
+</html>

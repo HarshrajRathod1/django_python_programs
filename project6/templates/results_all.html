@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="2" align="center" width="50%">
+        <tr>
+            <td>Roll Number</td>
+            <td>Subject1 Marks</td>
+            <td>Subject2 Marks</td>
+            <td>Total Marks</td>
+            <td>Average Marks</td>
+            <td>Result</td>
+        </tr>
+        {% for s in stud%}
+        <tr>
+                <td>{{s.rno}}</td>
+                <td>{{s.sub1}}</td>
+                <td>{{s.sub2}}</td>
+                <td>{{s.total}}</td>
+                <td>{{s.avg}}</td>
+                <td>{{s.result}}</td>
+        </tr>
+        {%endfor%}
+    </table> 
+</body>
+</html>

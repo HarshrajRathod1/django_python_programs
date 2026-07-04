@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table align="center" border="2" width="50%">
+        <form action="/Find_marks" method="get">
+            {%csrf_token%}
+            <tr>
+                <td>RollNo</td>
+                <td><input type="text" name="rno"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Find"></td>
+                <td><input type="reset" value="Clear"></td>
+            </tr>
+        </form>
+    </table>
+    <h2>{{msg}}</h2>
+</body>
+</html>

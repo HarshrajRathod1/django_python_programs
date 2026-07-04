@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var cites=["Mumbai","Indore","Delhi","Hyd"];
+        function bodyLoad(){
+            cites.map(function(city){
+                var object=document.createElement("option");
+                object.text=city;
+                object.value=city;
+                document.querySelector("select").appendChild(object)
+            })
+        }
+    </script>
+</head>
+<body onload="bodyLoad()">
+    <select></select>
+</body>
+</html>
+
+<!-- html herarchi 
+dom 
+virtual dom 
+shawdo dom  -->
