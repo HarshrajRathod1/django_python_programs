@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table width="50%" border="2" align="center">
+        <form action="/person/" method="post">
+            {%csrf_token%}
+            {{form.as_table}}
+            <tr>
+                <td><input type="submit" value="register"></td>
+                <td><input type="reset" value="clear"></td>
+            </tr>
+        </form>
+    </table>
+    <h2>{{msg}}</h2>
+</body>
+</html>
