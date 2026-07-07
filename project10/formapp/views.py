@@ -4,6 +4,7 @@ from formapp.models import UserRegister
 # Create your views here.
 
 def register(request):
+    msg=""
     if request.method=="POST":
         form=Register(request.POST)
         if form.is_valid():
@@ -12,8 +13,10 @@ def register(request):
             password = form.cleaned_data['password']
 
             UserRegister.objects.create(name=name,uname=uname,password=password)
+            msg="User Created"
 
-            response=render(request,"register_temp.html",context={'msg':"data saved!"})
+        else:
+            response=render(request,"register_temp.html",context={'form':form})
             return response 
 
 
