@@ -5,9 +5,10 @@ def register_view(request):
     msg=""
     if request.method=="POST":
         form=RegisterForm(request.POST)
-        if form.is_valid:
+        if form.is_valid():
             form.save()
             msg="employee data saved"
+            form=RegisterForm()
         else:
             response=render(request,"emp_temp.html",context={'form':form})
             return response
