@@ -36,3 +36,25 @@ def update_register(request):
     form=RegisterForm(instance=user)
     response=render(request,"update_reg_temp.html",context={'form':form,'msg':msg})
     return response
+
+from app.models import Employee
+from app.forms import EmployeeForm
+def update_emp(request):
+    msg=""
+    if request.method=="POST":
+        emp=Employee.objects.get(empno=request.POST.get("empno"))
+        emp_form=EmployeeForm(instance=emp,data=request.POST)
+        if emp_form.is_valid():
+            emp_form.save()
+            msg="saved"
+            emp_form=EmployeeForm()
+            response=render(request,"update_emp_temp.html",context={'form':emp_form,'msg':msg})
+            return response
+
+        else:
+            response=render(request,"update_emp_temp.html",context={'form':emp_form})
+            return response 
+    emp=Employee.objects.get(empno=request.GET.get("empno"))
+    emp_form=EmployeeForm(instance=emp)
+    response=render(request,"update_emp_temp.html",context={'form':emp_form,'msg':msg})
+    return response
