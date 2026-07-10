@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/student/" method="post">
+        {%csrf_token%}
+        <table border="2" width="80%" align="center">
+            <tr>
+                <td>{{form.sno.label}}</td>
+                <td>{{form.sno}}</td>
+                <td>{{form.sno.help_text}}</td>
+            </tr>
+            <tr>
+                <td>{{form.name.label}}</td>
+                <td>{{form.name}}</td>
+                <td>{{form.name.help_text}}</td>
+            </tr>
+            {%if form.name.errors%}
+            <tr>
+                <td>{{form.name.errors}}</td>
+            </tr>
+            {%endif%}
+            <tr>
+                <td>{{form.course.label}}</td>
+                <td>{{form.course}}</td>
+                <td>{{form.course.help_text}}</td>
+            </tr>
+            {%if form.course.errors%}
+            <tr>
+                <td>{{form.course.errors}}</td>
+            </tr>
+            {%endif%}
+
+            <tr>
+                <td><input type="submit" value="submit"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
