@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        td>input[type='text']{
+            color:black;
+            background-color: cyan;
+        }
+        td>input[type='number']{
+            color:black;
+            background-color: cyan;
+        }
+    </style>
 </head>
 <body>
     <form method="post">
@@ -11,9 +21,8 @@
         <table border="3" width="50%" align="center">
         {% for filed in form %}
         <tr>
-            <td>{{filed.label}}</td>
+            <td style="background-color: blue;color:white;">{{filed.label}}</td>
             <td>{{filed}}</td>
-            <td>{{filed.help_text}}</td>
         </tr>
         {%endfor%}
         {%for filed in form%}
