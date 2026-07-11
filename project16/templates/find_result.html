@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/findresult" method="get">
+        <table border="2" width="50%" align="center">
+            <tr>
+                <td>Roll No:</td>
+                <td><input type="number" name="rolno"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Find"></td>
+                <td><input type="reset" value="clear"></td>
+            </tr>
+        </table>
+    </form>
+    <table border="2" align="center" width="50%">
+        <tr>
+            <td>Roll NO:</td>
+            <td>{{stud.rollno}}</td>
+        </tr>
+        <tr>
+            <td>Student Name:</td>
+            <td>{{stud.name}}</td>
+        </tr>
+        <tr>
+            <td>Subject1 Marks:</td>
+            <td>{{stud.sub1}}</td>
+        </tr>
+        <tr>
+            <td>Subject2 Marks:</td>
+            <td>{{stud.sub2}}</td>
+        </tr>
+        <tr>
+            <td>Total Marks:</td>
+            <td>{{total}}</td>
+        </tr>
+        <tr>
+            <td>Average Marks:</td>
+            <td>{{avg}}</td>
+        </tr>
+        <tr>
+            <td>Result:</td>
+            <td>{{result}}</td>
+        </tr>
+    </table>
+    <h2>{{msg}}</h2>
+</body>
+</html>
