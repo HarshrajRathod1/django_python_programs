@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.exceptions import ValidationError
 # Create your models here.
 
 class Student(models.Model):
@@ -25,6 +25,11 @@ class Employee(models.Model):
 
     def save(self):
         self.hra=self.salary*15/100
+        self.full_clean()
         return super().save()
     
 
+    def clean(self):
+        super().clean()
+        if self.salary<=0:
+            raise ValidationError("Salary is grater than equal to zero")
