@@ -16,12 +16,22 @@ class Student(models.Model):
     
     def find_result(self):
         return "PASS" if self.sub1>=40 and self.sub2>=40 else "FAIL"
-    
+
+class EmployeeModel(models.Manager):
+    def all(self):
+        qs=super().all()
+        qs1=qs.filter(eno=1)
+        return qs1
+
+
 class Employee(models.Model):
     eno=models.BigAutoField(primary_key=True)
     ename=models.CharField(max_length=20)
     salary=models.FloatField()
     hra=models.FloatField()
+
+
+    objects=EmployeeModel()
 
     def save(self):
         self.hra=self.salary*15/100
