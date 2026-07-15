@@ -36,5 +36,13 @@ class Login(View):
             response=render(request,"login.html",context={'msg':msg})
             return response
         
+class submit(TemplateView):
+    template_name="submit.html"
+    def get_context_data(self):
+        context= super().get_context_data()
+        context['name']="HARSH"
+        context['age']=23
+        return context
+
 
 
