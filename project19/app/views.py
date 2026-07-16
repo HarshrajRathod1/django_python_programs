@@ -13,3 +13,5 @@ class CreateProduct(CreateView):
 
 class ListProduct(ListView):
     model=Product
+    template_name="all_product_temp.html"
+    context_object_name="prod"
