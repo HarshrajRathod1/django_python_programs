@@ -8,3 +8,4 @@ class CreateProduct(CreateView):
     model=Product
     fields=['pname','qty','price']
     success_url='/create_prod/'
+    template_name="app/templates/app/product_temp.html"
