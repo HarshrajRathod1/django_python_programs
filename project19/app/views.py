@@ -1,19 +1,10 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from django.views.generic import RedirectView
+from django.views.generic import CreateView
+from app.models import Product
 # Create your views here.
 
-def view1(request):
-    msg="<h2>This is view1</h2>"
-    response=HttpResponse(msg)
-    return response
-
-def view2(request):
-    response=redirect(view1)
-    return response
-
-class view3(RedirectView):
-    url="http://www.youtube.com"
-
-class view4(RedirectView):
-    url="/view1"
+class CreateProduct(CreateView):
+    model=Product
+    fields=['pname','qty','price']
+    success_url='/create_prod/'
