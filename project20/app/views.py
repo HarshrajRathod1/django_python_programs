@@ -20,6 +20,19 @@ class EmpDetailView1(DetailView):
         context["comm"]=comm
         print(context)
         return context
+    
+from django.views.generic import UpdateView,ListView
+from app.forms import EmployeeForm
+class EmpUpdateView(UpdateView):
+    model=Employee
+    form_class=EmployeeForm
+    success_url="/emp_list"
+
+class EmpList(ListView):
+    model=Employee
+    context_object_name="emp"
+
+
         
     
 
