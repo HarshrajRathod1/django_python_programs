@@ -7,5 +7,6 @@ from app.models import Employee
 
 class EmpDetailView(DetailView):
     model=Employee
+    context_object_name="emp"
     
 
