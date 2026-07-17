@@ -8,5 +8,18 @@ from app.models import Employee
 class EmpDetailView(DetailView):
     model=Employee
     context_object_name="emp"
+
+class EmpDetailView1(DetailView):
+    model=Employee
+    context_object_name="emp"
+
+    def get_context_data(self, **kwargs):
+        context= super().get_context_data(**kwargs)
+        e=super().get_object()
+        comm=e.sal*10/100
+        context["comm"]=comm
+        print(context)
+        return context
+        
     
 
