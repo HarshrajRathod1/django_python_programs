@@ -39,6 +39,11 @@ class EmpDeleteView(DeleteView):
     template_name="delete_confirm_temp.html"
     success_url="/emp_list"
 
+from django.views.generic import FormView
+from app.forms import RegisterForm
+class RegisterFormView(FormView):
+    form_class=RegisterForm
+    template_name="register_temp.html"
         
     
 
