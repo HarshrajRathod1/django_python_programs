@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content%}
+<div class="table-responsive w-50 p-4 fs-5" style="margin: 20px auto;">
+    <table class=" table table-bordered table-striped">
+        <tbody>
+        <tr>
+            <td class="fw-bold">User ID</td>
+            <td>{{object.user_id}}</td>
+        </tr>
+        <tr>
+            <td class="fw-bold">First Name</td>
+            <td>{{object.fname}}</td>
+        </tr>
+        <tr>
+            <td class="fw-bold">Last Name</td>
+            <td>{{object.lname}}</td>
+        </tr>
+        <tr>
+            <td class="fw-bold">UserName</td>
+            <td>{{object.uname}}</td>
+        </tr>
+        <tr>
+            <td class="fw-bold">Email</td>
+            <td>{{object.email}}</td>
+        </tr>
+        <tr>
+            <td class="fw-bold">City</td>
+            <td>{{object.city}}</td>
+        </tr>
+        <tr>
+            <td class="fw-bold">Gender</td>
+            <td>{{object.gender}}</td>
+        </tr>
+        <tr>
+            <td class="fw-bold">Role</td>
+            <td>{{object.role}}</td>
+        </tr>
+        <tr>
+            <td class="fw-bold">DOB</td>
+            <td>{{object.dob}}</td>
+        </tr>
+        <tr>
+            <td class="fw-bold">Number</td>
+            <td>{{object.number}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+{%endblock content%}

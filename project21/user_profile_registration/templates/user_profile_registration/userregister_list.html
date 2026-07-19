@@ -1,0 +1,44 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="table-responsive">
+    <table class=" table table-bordered mt-3 p-2">
+        <thead class="fw-bold text-center">
+        <th >
+            <td>User ID</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>UserName</td>
+            <td>Email</td>
+            <td>Gender</td>
+            <td>Role</td>
+            <td>DOB</td>
+            <td>City</td>
+            <td>Contact No.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </th>
+        </thead>
+        <tbody>
+        {%for v in user %}
+        <tr>
+            <td></td>
+            <td>{{v.user_id}}</td>
+            <td>{{v.fname}}</td>
+            <td>{{v.lname}}</td>
+            <td>{{v.uname}}</td>
+            <td>{{v.email}}</td>
+            <td>{{v.gender}}</td>
+            <td>{{v.role}}</td>
+            <td>{{v.dob}}</td>
+            <td>{{v.city}}</td>
+            <td>+91 {{v.number}}</td>
+            <td><a href="/user/{{v.user_id}}/" class="btn btn-primary"> Show</a></td>
+            <td><a class="btn btn-warning" href="/update_user/{{v.user_id}}/"> Edit</a></td>
+            <td><a class="btn btn-danger" href="/delete_user/{{v.user_id}}/"> Delete</a></td>
+        </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+</div>
+{%endblock content%}
