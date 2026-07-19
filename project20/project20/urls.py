@@ -19,10 +19,13 @@ from django.urls import path
 from app.views import EmpDetailView,EmpDetailView1
 
 from app.views import EmpUpdateView,EmpList
+
+from app.views import EmpDeleteView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('emp_detail/<int:pk>/',EmpDetailView.as_view()),
     path('emp_detail1/<int:pk>/',EmpDetailView1.as_view()),
     path('emp_update/<int:pk>/',EmpUpdateView.as_view()),
-    path('emp_list/',EmpList.as_view(),name="emp_list")
+    path('emp_list/',EmpList.as_view(),name="emp_list"),
+    path('emp_delete/<int:pk>/',EmpDeleteView.as_view())
 ]

@@ -32,6 +32,12 @@ class EmpList(ListView):
     model=Employee
     context_object_name="emp"
 
+from django.views.generic import DeleteView
+
+class EmpDeleteView(DeleteView):
+    model=Employee
+    template_name="delete_confirm_temp.html"
+    success_url="/emp_list"
 
         
     
