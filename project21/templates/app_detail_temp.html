@@ -1,0 +1,22 @@
+{%extends 'app_base.html'%}
+{%block content%}
+<table>
+    <tr>
+        <td>Name</td>
+        <td>{{customer.name}}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>{{customer.email}}</td>
+    </tr>
+    <tr>
+        <td>Contact Number</td>
+        <td>{{customer.phone_number}}</td>
+    </tr>
+    <tr>
+        <td>Date of Birth</td>
+        <td>{{customer.date_of_birth}}</td>
+    </tr>
+</table>
+
+{%endblock content%}

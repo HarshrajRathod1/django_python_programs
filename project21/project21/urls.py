@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from user_profile_registration.views import HomeView,UserCreate,UserListView,SingleUserDetailView,UserUpdateView,UserDeleteView
+
+from app.views import HomeView,CustCreateView,CustListView,CustUpdateView,CustDeleteView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',HomeView.as_view(),name="home"),
@@ -24,5 +26,11 @@ urlpatterns = [
     path('alluserlist/',UserListView.as_view(),name="alluserlist"),
     path('user/<int:pk>/',SingleUserDetailView.as_view(),name="user"),
     path('update_user/<int:pk>/',UserUpdateView.as_view(),name="update_user"),
-    path('delete_user/<int:pk>/',UserDeleteView.as_view())
+    path('delete_user/<int:pk>/',UserDeleteView.as_view()),
+
+    path('home/',HomeView.as_view()),
+    path('cust_create/',CustCreateView.as_view(),name="home"),
+    path('cust_all/',CustListView.as_view()),
+    path('cust_edit/<int:pk>/',CustUpdateView.as_view(),name="cust_all"),
+    path('cust_delete/<int:pk>/',CustDeleteView.as_view(),name="cust_all"),
 ]

@@ -1,0 +1,24 @@
+{%extends 'app_base.html'%}
+{%block content%}
+<table border="2" width="100%">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Date of Birth</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    {%for cust in customer%}
+    <tr>
+        <td>{{cust.name}}</td>
+        <td>{{cust.email}}</td>
+        <td>{{cust.phone_number}}</td>
+        <td>{{cust.date_of_birth}}</td>
+        <td><a href="/cust_edit/{{cust.cust_id}}/">Edit</a></td>
+        <td><a href="/cust_delete/{{cust.cust_id}}/">Delete</a></td>
+    </tr>
+    {%endfor%}
+</table>
+
+{%endblock content%}
