@@ -19,7 +19,7 @@ from django.urls import path
 from user_profile_registration.views import HomeView,UserCreate,UserListView,SingleUserDetailView,UserUpdateView,UserDeleteView
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/',HomeView.as_view(),name="home"),
+    path('',HomeView.as_view(),name="home"),
     path('create_user/',UserCreate.as_view(),name="create_user"),
     path('alluserlist/',UserListView.as_view(),name="alluserlist"),
     path('user/<int:pk>/',SingleUserDetailView.as_view(),name="user"),
