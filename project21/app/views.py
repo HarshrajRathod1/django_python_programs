@@ -11,7 +11,7 @@ class CustCreateView(CreateView):
     model=Customer
     form_class=CustomerForm
     template_name="app_create_temp.html"
-    success_url="/home"
+    success_url="/app_home"
 
 class CustListView(ListView):
     model=Customer

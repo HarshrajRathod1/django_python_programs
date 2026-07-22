@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <table>
-        <form method="post">
-            {%csrf_token%}
-            <h2>Do You want to delete?</h2>
-            <tr>
-                <td><input type="submit" value="yes"></td>
-                <td><input type="reset" value="no"></td>
-            </tr>
-        </form>
-    </table>
-</body>
-</html>
+{%extends 'base.html'%}
+{%block content%}
+    <div class="container-fluid d-flex justify-content-center mt-5">
+    <form method="post" class="border border-black p-3 rounded-3">
+    {%csrf_token%}
+    <h3 class="fs-2 fw-bold p-3">Do You want to Delete</h3>
+    <div class="d-flex justify-content-center gap-4">
+    <input type="submit" value="yes" class="btn btn-outline-success">
+    <a href="/alluserlist" class="btn btn-outline-info">No</a>
+    </div>
+</form>
+</div>
+{%endblock content%}

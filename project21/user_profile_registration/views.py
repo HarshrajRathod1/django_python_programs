@@ -9,8 +9,8 @@ class HomeView(TemplateView):
 
 class UserCreate(CreateView):
     model=UserRegister
-    fields="__all__"
-    success_url="/home/"
+    form_class=UserRegisterForm
+    success_url="/alluserlist/"
 
 class UserListView(ListView):
     model=UserRegister
