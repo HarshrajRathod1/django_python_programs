@@ -15,11 +15,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,reverse_lazy
 from app.views import *
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.decorators import login_required
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/',user_register),
     path('login/',loginview,name="login"),
-    path('logout/',loginview)
+    path('dashboard/',dashboardview),
+    path('logout/',loginview),
+    #function based view for change password
+    path('password_change/',passwordchange_view),
+
+    #class based view for changing password
+    path(
+        'password_change1/',
+            PasswordChangeView.as_view(
+                template_name="password_change_temp.html",
+                success_url=reverse_lazy("login"),
+            )
+        ),
 ]
