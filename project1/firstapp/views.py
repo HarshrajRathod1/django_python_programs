@@ -10,3 +10,10 @@ def first(request):
     </html>"""
     response=HttpResponse(output)
     return response
+
+
+def view1(request):
+    return HttpResponse("<h1>View 1 </h1>")
+
+def view2(request):
+    return HttpResponse("<h1>View 2 </h1>")

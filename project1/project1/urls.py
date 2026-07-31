@@ -18,8 +18,11 @@ from django.contrib import admin
 from django.urls import path,include
 from firstapp.views import first
 import second
+from firstapp.views import view1,view2
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',first),
     path('abc/',include('second.urls')),
+    path('view1/',view1),
+    path('view2/',view2),
 ]
