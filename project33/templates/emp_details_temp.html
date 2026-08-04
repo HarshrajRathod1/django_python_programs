@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/range">
+        <table border="black" width="50%">
+        <caption>Employee Salary Range</caption>
+        
+            <tr>
+                <td>Minimum Salary</td>
+                <td><input type="text" name="min"></td>
+            </tr>
+            <tr>
+                <td>Maximum Salary</td>
+                <td><input type="text" name="max"></td>
+                <button>Result</button>
+            </tr>
+    </table>
+    </form>
+    <br>
+    <br>
+    <form action="/filter_job">
+            <select name="job">Sort by Job
+                <option value="manager">Manager</option>
+                <option value="hr">HR</option>
+                <option value="clark">Clark</option>
+            </select>
+            <button>Search</button>
+        </form>
+
+    <br><br>
+    <table border="2" width="50%">
+        <tr>
+            <td>Emp No</td>
+            <td>Emp Name</td>
+            <td>Emp salary</td>
+            <td>Emp Job</td>
+        </tr>
+        {%for emp in qs%}
+        <tr>
+            <td>{{emp.eid}}</td>
+            <td>{{emp.ename}}</td>
+            <td>{{emp.sal}}</td>
+            <td>{{emp.job}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+</body>
+</html>
