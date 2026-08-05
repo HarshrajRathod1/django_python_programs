@@ -17,9 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app.views import home_view,emp_range_emp,filter_job_view
+
+from app.views import agg_home_view,group_by
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',home_view),
     path('range/',emp_range_emp),
-    path('filter_job/',filter_job_view)
+    path('filter_job/',filter_job_view),
+    path('agg_home/',agg_home_view),
+    path('group_by/',group_by)
 ]

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="2" width="50%" align="center">
+        <form action="/group_by">
+            <tr>
+                <td>Select Job</td>
+                <td><select name="job">
+                    <option value="all">All</option>
+                    <option value="manager">Manager</option>
+                    <option value="hr">HR</option>
+                    <option value="clark">Clark</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>Select Aggrigate Function</td>
+                <td><select name="function">
+                    <option value="min">Min</option>
+                    <option value="max">Max</option>
+                    <option value="avg">Avg</option>
+                    <option value="sum">Sum</option>
+                    <option value="count">Count</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Find"></td>
+            </tr>
+        </form>
+    </table>
+    <br><br>
+    <table border="2" width="50%" align="center">
+        <tr>
+            <th>Job</th>
+            <th>Result</th>
+        </tr>
+        {%for emp in qs%}
+        <tr>
+            <td>{{emp.job}}</td>
+            <td>{{emp.res}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+</body>
+</html>
