@@ -1,5 +1,5 @@
 """
-URL configuration for webapi3 project.
+URL configuration for todo_project project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/6.0/topics/http/urls/
@@ -16,13 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api.views import allemployess,single_emp
-from api.views import getallemp_view,getallemp_view1,insertemp_view
+from todo_app.views import register_view
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('allemployess',allemployess),
-    path('get_emp/<int:empno>/',single_emp),
-    path('getallemp/',getallemp_view),
-    path('getallemp1/',getallemp_view1),
-    path('insertemp/',insertemp_view)
+    path('register/',register_view)
 ]

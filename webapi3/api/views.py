@@ -20,7 +20,24 @@ def single_emp(request,empno):
     except:
         return JsonResponse({"msg":"Invalid Employee Number"})
 
+from django.core.serializers import serialize
 
-        
+def getallemp_view(request):
+    qs=Employee.objects.all()
+    data=serialize("json",qs)
+    return JsonResponse(data,safe=False)    
+import json
+def getallemp_view1(request):
+    qs=Employee.objects.all()
+    json_data=serialize("json",qs,fields=['ename','job'])
+    data=json.loads(json_data)
+    fields_data=[]
+    for obj in data:
+        fields_data.append(obj['fields'])
+    json_fields_data=json.dumps(fields_data)
+    return JsonResponse(json_fields_data,safe=False)  
 
-
+def insertemp_view(request):
+    data=json.loads(request.body.decode('utf-8'))
+    Employee.objects.create(ename=data['ename'],job=data['job'],sal=data['sal'])
+    return JsonResponse({"msg":"Employee is created "},status=201)
