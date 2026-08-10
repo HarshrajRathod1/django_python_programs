@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.urls import path
 from api.views import allemployess,single_emp
 from api.views import getallemp_view,getallemp_view1,insertemp_view
+from api.views import updateemp_view,deleteemp_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('allemployess',allemployess),
     path('get_emp/<int:empno>/',single_emp),
     path('getallemp/',getallemp_view),
     path('getallemp1/',getallemp_view1),
-    path('insertemp/',insertemp_view)
+    path('insertemp/',insertemp_view),
+    path('updateemp/',updateemp_view),
+    path('delemp/<int:empno>/',deleteemp_view)
 ]
