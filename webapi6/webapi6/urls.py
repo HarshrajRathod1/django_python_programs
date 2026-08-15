@@ -16,12 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api.views import getall,getstud,create_stud,delete_stud,update_stud
+#from api.views import getall,getstud,create_stud,delete_stud,update_stud
+from api.views import Student_view
+from api.views import Student_oprations
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('stud/',Student_view.as_view()),
+    path('stud/<int:pk>/',Student_oprations.as_view())
+]
+#function urls
+'''
+    Function Based View 
     path('getall/',getall),
     path('getstud/<int:rno>/',getstud),
     path('create_stud/',create_stud),
     path('del_stud/<int:rno>/',delete_stud),
-    path('update_stud/<int:rno>/<str:course>/',update_stud)
-]
+    path('update_stud/<int:rno>/<str:course>/',update_stud),
+    '''

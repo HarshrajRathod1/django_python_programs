@@ -6,7 +6,45 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view 
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from rest_framework.views import APIView
 # Create your views here.
+
+class Student_view(APIView):
+    def get(self,request):
+        qs=Student.objects.all()
+        studser=StudentSerializer(qs,many=True)
+        studs=studser.data
+        return Response(studs)
+    def post(self,request):
+        studser=StudentSerializer(request.data)
+        stud=studser.data
+        Student.objects.create(**stud)
+        return Response({'msg':'student created!'})
+
+class Student_oprations(APIView):
+    def get(self,request,pk):
+        stud=Student.objects.get(rno=pk)
+        studser=StudentSerializer(stud)
+        studdata=studser.data
+        return Response(studdata)
+
+    def put(self,request,pk):
+        stud=Student.objects.get(rno=pk)
+        data=StudentSerializer(request.data).data
+        stud.name=data['name']
+        stud.course=data['course']
+        stud.save()
+        return Response({'msg':'Student Updated!'})
+
+    def delete(self,request,pk):
+        Student.objects.filter(rno=pk).delete()
+        return Response({'msg':'Student Deleted!'})
+
+
+
+
+'''
+Function Based View 
 
 @api_view(['GET'])
 def getall(request):
@@ -41,5 +79,5 @@ def update_stud(request,rno,course):
     Student.objects.filter(rno=rno).update(course=course)
     return Response({'msg': 'Student Updated'})
 
-
+'''
 
