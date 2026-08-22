@@ -17,7 +17,25 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from api.views import emp_CreateAPIView
+from api.views import emp_ListAPIView
+from api.views import emp_RetrieveAPIView
+from api.views import emp_UpdateAPIView
+from api.views import emp_DestroyAPIView
+
+from api.views import emp_ListCreateAPIView
+from api.views import emp_ReteriveUpdateAPIView
+from api.views import emp_ReterieveDestroyAPIView
+from api.views import emp_RetrieveUpdateDestoryAPIView
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('empcreate/',emp_CreateAPIView.as_view())
+    path('empcreate/',emp_CreateAPIView.as_view()),
+    path('emplist/',emp_ListAPIView.as_view()),
+    path('empget/<int:pk>/',emp_RetrieveAPIView.as_view()),
+    path('empupdate/<int:pk>/',emp_UpdateAPIView.as_view()),
+    path('empdelete/<int:pk>/',emp_DestroyAPIView.as_view()),
+
+    path('emplistcreate/',emp_ListCreateAPIView.as_view()),
+    path('empgetupdate/<int:pk>/',emp_ReteriveUpdateAPIView.as_view()),
+    path('empgetdelete/<int:pk>/',emp_ReterieveDestroyAPIView.as_view()),
+    path('empgetupdatedelete/<int:pk>/',emp_RetrieveUpdateDestoryAPIView.as_view()),
 ]
