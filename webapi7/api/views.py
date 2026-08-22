@@ -32,6 +32,13 @@ class employee_view(APIView):
         except:
             return Response({'msg':'Invalid Employee'},status=400)
 
+    def delete(self,request,pk):
+            try:
+                Employee.objects.filter(eno=pk).delete()
+                return Response({'msg':'Employee Deleted'},status=200)
+            except:
+                return Response({'msg':'Invalid Employee'},status=400)
+
     def put(self,request,pk):
         try:
             emp=Employee.objects.get(eno=pk)
@@ -61,10 +68,3 @@ class employee_view(APIView):
             return Response({'msg':'Invalid Employee'},status=400)'''
     
     
-
-    def delete(self,request,pk):
-        try:
-            Employee.objects.filter(eno=pk).delete()
-            return Response({'msg':'Employee Deleted'},status=200)
-        except:
-            return Response({'msg':'Invalid Employee'},status=400)
